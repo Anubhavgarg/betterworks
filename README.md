@@ -12,4 +12,13 @@ Steps to run the code:
 
  What is not completed---> NA
 
- if anything want to discuss, contact me
+Sample Output:
+0          1                2                       
+---------  ---------------  ------------------------
+Segment    Sentiment Score  Participation Percentage
+Manager    5                94.12                   
+Developer  0                100.00                  
+CEO        -2               100.00  
+
+
+Please feel free to contact in case of any queries

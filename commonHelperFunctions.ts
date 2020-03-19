@@ -25,10 +25,10 @@ const getVoteData = () => {
     return voteDataObject;
 }
 const finalOutputObject = (userLocationObject: any, voteDataObject: any) => {
-    const finalArray = [];
+    const finalArray = [["Segment", "Sentiment Score", "Participation Percentage"]];
     for (const singleUserDimension in userLocationObject) {
         let voteDone = 0;
-        let sentimentalValue = 0;
+        let sentimentalValue: any = 0;
         let totalPeople = userLocationObject[singleUserDimension].length;
         for (const singleDimensionalUser of userLocationObject[singleUserDimension]) {
             if (voteDataObject[singleDimensionalUser] && voteDataObject[singleDimensionalUser].length) {
@@ -36,12 +36,7 @@ const finalOutputObject = (userLocationObject: any, voteDataObject: any) => {
                 sentimentalValue += voteDataObject[singleDimensionalUser][0]
             }
         }
-        finalArray.push({
-            SentimentalScore: sentimentalValue,
-            Segment: singleUserDimension,
-            "Participation Percentage": Number((voteDone / totalPeople) * 100)
-        })
-
+        finalArray.push([singleUserDimension,sentimentalValue,Number((voteDone / totalPeople) * 100).toFixed(2)])
     }
     return finalArray;
 }

@@ -29,7 +29,7 @@ const getVoteData = () => {
 };
 exports.getVoteData = getVoteData;
 const finalOutputObject = (userLocationObject, voteDataObject) => {
-    const finalArray = [];
+    const finalArray = [["Segment", "Sentiment Score", "Participation Percentage"]];
     for (const singleUserDimension in userLocationObject) {
         let voteDone = 0;
         let sentimentalValue = 0;
@@ -40,11 +40,7 @@ const finalOutputObject = (userLocationObject, voteDataObject) => {
                 sentimentalValue += voteDataObject[singleDimensionalUser][0];
             }
         }
-        finalArray.push({
-            SentimentalScore: sentimentalValue,
-            Segment: singleUserDimension,
-            "Participation Percentage": Number((voteDone / totalPeople) * 100)
-        });
+        finalArray.push([singleUserDimension, sentimentalValue, Number((voteDone / totalPeople) * 100).toFixed(2)]);
     }
     return finalArray;
 };

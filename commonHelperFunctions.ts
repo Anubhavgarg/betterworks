@@ -1,7 +1,6 @@
-import { voteData, userData } from "./data"
 import { sentimentalValue } from "./constants"
 
-const getUserList = (sortingType: any) => {
+const getUserList = (sortingType: any, userData: any) => {
     const userLocationObject: any = {}
     for (const singleUser of userData) {
         if (userLocationObject[singleUser[sortingType]]) {
@@ -13,7 +12,7 @@ const getUserList = (sortingType: any) => {
     return userLocationObject;
 }
 
-const getVoteData = () => {
+const getVoteData = (voteData: any) => {
     const voteDataObject: any = {};
     for (const singleVote of voteData) {
         if (voteDataObject[singleVote.userId]) {

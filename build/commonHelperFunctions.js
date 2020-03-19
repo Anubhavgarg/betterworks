@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const data_1 = require("./data");
 const constants_1 = require("./constants");
-const getUserList = (sortingType) => {
+const getUserList = (sortingType, userData) => {
     const userLocationObject = {};
-    for (const singleUser of data_1.userData) {
+    for (const singleUser of userData) {
         if (userLocationObject[singleUser[sortingType]]) {
             userLocationObject[singleUser[sortingType]].push(singleUser.User);
         }
@@ -15,9 +14,9 @@ const getUserList = (sortingType) => {
     return userLocationObject;
 };
 exports.getUserList = getUserList;
-const getVoteData = () => {
+const getVoteData = (voteData) => {
     const voteDataObject = {};
-    for (const singleVote of data_1.voteData) {
+    for (const singleVote of voteData) {
         if (voteDataObject[singleVote.userId]) {
             voteDataObject[singleVote.userId][0] = voteDataObject[singleVote.userId][0] + constants_1.sentimentalValue[singleVote.Vote];
         }

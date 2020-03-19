@@ -3,7 +3,10 @@
     "version": "1.0.0",
     "description": "Serverless webpack example using Typescript",
     "main": "sample.ts",
-    "scripts": {},
+    "scripts": {
+        "start": "tsc && node build/sampleFile.js",
+        "test": "tsc && mocha build/test/*.js --timeout 10000"
+    },
     "resolutions": {
         "terser": "3.14.1"
     },
